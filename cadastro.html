@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - BookMatch</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+<!-- HEADER BANNER -->
+<header class="header-banner">
+    <h1>BookMatch</h1>
+</header>
+
+<!-- CONTAINER -->
+<section class="container">
+
+    <div class="form-box">
+        <h2>Crie sua conta</h2>
+        <p>Receba recomendações personalizadas de livros</p>
+
+    <form>
+    <p>Insira seu Nome:</p>
+    <input type="text" id="input_nome">
+    <div id="erro_nome"></div>
+
+    <p>Insira seu email:</p>
+    <input type="text" id="input_email">
+    <div id="erro_email"></div>
+
+    <p>Insira sua senha:</p>
+    <input type="text" id="input_senha">
+    <div id="erro_senha"></div>
+
+    <button type="button" onclick="botao()">Cadastrar</button>
+</form>
+
+        <span>Já possui conta? <a href="login.html">Entrar</a></span>
+    </div>
+ <div id="div_mensagem"></div>
+</section>
+
+</body>
+</html>
+
+<script>
+let listaUsuarios = [];
+
+function botao() {
+
+    let nome = input_nome.value;
+    let email = input_email.value;
+    let senha = input_senha.value;
+
+    // limpar erros
+    erro_nome.innerHTML = "";
+    erro_email.innerHTML = "";
+    erro_senha.innerHTML = "";
+
+    input_nome.style.border = "";
+    input_email.style.border = "";
+    input_senha.style.border = "";
+
+    // campo nome
+    if (nome == "") {
+        erro_nome.innerHTML = "Preencha o nome";
+        input_nome.style.border = "2px solid red";
+    }
+
+    // campo email
+    let temArroba = false;
+
+    for (let i = 0; i < email.length; i++) {
+        if (email[i] == "@") {
+            temArroba = true;
+        }
+    }
+
+    if (email == "") {
+        erro_email.innerHTML = "Preencha o email";
+        input_email.style.border = "2px solid red";
+
+    } else if (!temArroba) {
+        erro_email.innerHTML = "Email precisa ter @";
+        input_email.style.border = "2px solid red";
+    }
+
+    // campo senha
+    if (senha == "") {
+        erro_senha.innerHTML = "Preencha a senha";
+        input_senha.style.border = "2px solid red";
+
+    } else if (senha.length < 6) {
+        erro_senha.innerHTML = "Mínimo 6 caracteres";
+        input_senha.style.border = "2px solid red";
+    }
+
+    // verificar se pode ir para as recomendações
+    if (
+        erro_nome.innerHTML == "" &&
+        erro_email.innerHTML == "" &&
+        erro_senha.innerHTML == ""
+    ) {
+
+        let usuario = {
+            nome: nome,
+            email: email,
+            senha: senha
+        };
+
+        listaUsuarios.push(usuario);
+
+        console.log(listaUsuarios);
+
+        alert("Cadastro realizado!");
+
+        window.location.href = "recomedacao.html";
+    }
+}
+</script>
