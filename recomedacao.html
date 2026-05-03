@@ -173,7 +173,7 @@ else if (gen == "romance" && pag == "curto" && freq != "pouco") {
     <p>Sara Pennypacker</p>
     <img src="https://m.media-amazon.com/images/I/61ak2ndWIwL._AC_UF1000,1000_QL80_.jpg">
 </div>
-`;}else if (pag != "curto"){
+`;}else if (gen == "aventura" && pag != "curto"){
   mensagem = `
     <div class="card">
         <h3>Série de livros</h3>
@@ -261,7 +261,7 @@ mensagem = `
     <p> Antoine de Saint-Exupéry</p>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHSrsJo1-SxHoTpJuxhi0-yG6xPTwQQh6kVw&s">
     </div>
-`;} else if(pag != "curto"){
+`;} else if(gen == "Classicos" && pag != "curto"){
     mensagem = `
       <div class="card">
     <h4>A Menina que Roubava Livros</h4>
@@ -312,7 +312,7 @@ mensagem = `
     <p>E. Lockhart</p>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyBB5ZfUhilqjMuA2QbcUiNTyRRL_P_xFcecCXCsz9Bp8V7mtr9QGtAgjGZ938QCvtb7JY6kuFvBgBfMI10dMGmjb5Rj_cKy2anPg6A&s=10">
     </div>
-    `;}else if(gen == "suspense" && pag != "curto"){
+    `;}else if(gen == "suspense" && pag != "curto" && freq == "pouco"){
 mensagem = `
     <div class="card">
     <h4>Verity</h4>
@@ -326,7 +326,21 @@ mensagem = `
     <img src="https://m.media-amazon.com/images/I/81r6K6pVipL.jpg">
     </div>
 
-     <div class="card">
+    `;}else if(gen == "suspense" && pag != "curto" && freq != "pouco"){
+    mensagem =`
+    <div class="card">
+    <h4>Verity</h4>
+    <p>Colleen Hoover</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgti-9UzkJPdeyFOTgFmNgxLAyTdKMKT-PFA&s">
+    </div>
+
+    <div class="card">
+    <h4>Um de nós está mentindo</h4>
+    <p>Karen M. McManus</p>
+    <img src="https://m.media-amazon.com/images/I/81r6K6pVipL.jpg">
+    </div>
+    
+        <div class="card">
     <h4>Morte no Nilo</h4>
     <p>Agatha Christie</p>
     <img src="https://m.media-amazon.com/images/I/914zKRvyq7L._AC_UF1000,1000_QL80_.jpg">
