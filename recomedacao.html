@@ -17,7 +17,7 @@
 
     <!-- LADO ESQUERDO (FORMULÁRIO) -->
     <div class="box">
-        <h2>Encontre seu próximo livro 📚</h2>
+        <h2>Encontre seu próximo livro</h2>
         <p>Responda algumas perguntas e receba recomendações personalizadas</p>
 
         <div class="form">
@@ -83,12 +83,16 @@ else if (gen == "romance" && pag == "curto" && freq != "pouco") {
         <p>Stephen Chbosky</p>
         <img src="https://m.media-amazon.com/images/I/61RvpX3hkTL._AC_UF1000,1000_QL80_.jpg">
         </div>
+
     <div class="card"><h4>Em outra vida, talvez?</h4>
         <p>Taylor Jenkins Reid</p>
-    <img src="https://m.media-amazon.com/images/I/71rQD7DaUaL._UF1000,1000_QL80_.jpg"></div>
+    <img src="https://m.media-amazon.com/images/I/71rQD7DaUaL._UF1000,1000_QL80_.jpg">
+    </div>
+
     <div class="card"><h4>A Culpa é das Estrelas</h4>
          <p>John Green</p>
-    <img src="https://m.media-amazon.com/images/I/811ivBP1rsL._UF1000,1000_QL80_.jpg"></div>
+    <img src="https://m.media-amazon.com/images/I/811ivBP1rsL._UF1000,1000_QL80_.jpg">
+    </div>
     `;
 } else if (gen == "romance" && pag == "medio" && freq == "pouco") {
     mensagem = `
@@ -308,7 +312,7 @@ mensagem = `
     <p>E. Lockhart</p>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyBB5ZfUhilqjMuA2QbcUiNTyRRL_P_xFcecCXCsz9Bp8V7mtr9QGtAgjGZ938QCvtb7JY6kuFvBgBfMI10dMGmjb5Rj_cKy2anPg6A&s=10">
     </div>
-    `;}else if(gen == "suspense" && pag != "curto" && freq != "pouco"){
+    `;}else if(gen == "suspense" && pag != "curto"){
 mensagem = `
     <div class="card">
     <h4>Verity</h4>
@@ -330,8 +334,14 @@ mensagem = `
 
      <div class="card">
     <h4>O Homem de Giz</h4>
-    <p>Karen M. McManus</p>
-    <img src="https://m.media-amazon.com/images/I/81r6K6pVipL.jpg">
+    <p>C. J. Tudor</p>
+    <img src="https://m.media-amazon.com/images/I/91o6FMAy8UL._AC_UF1000,1000_QL80_.jpg">
+    </div>
+
+     <div class="card">
+    <h4>Da morte ninguém escapa</h4>
+    <p>M. J. Arlidge</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStp5Ip3iDRK2sFnLyuLF8OEZSgSMk9YcPmbw&s">
     </div>
 `;}
 resultado.innerHTML = mensagem;
