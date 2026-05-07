@@ -7,7 +7,7 @@ function cadastrar(nome, email, senha) {
         VALUES ('${nome}', '${email}', '${senha}');
     `;
 
-    return conexao.promise().query(instrucao);
+    return conexao.promise().query(instrucao);  
 }
 
 module.exports = {

@@ -12,8 +12,8 @@ conexao.connect(function (erro) {
     if (erro) {
         console.log("Erro ao conectar:", erro);
     } else {
-        console.log("Conectado ao MySQL!");
+        console.log("Conectado ao MySQL!"); 
     }
-});
+}); 
 
-module.exports = conexao;
+module.exports = conexao;  
