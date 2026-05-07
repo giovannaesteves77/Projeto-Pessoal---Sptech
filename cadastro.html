@@ -44,8 +44,6 @@
 </html>
 
 <script>
-let listaUsuarios = [];
-
 function botao() {
 
     let nome = input_nome.value;
@@ -102,19 +100,37 @@ function botao() {
         erro_senha.innerHTML == ""
     ) {
 
-        let usuario = {
-            nome: nome,
-            email: email,
-            senha: senha
-        };
+       fetch("http://localhost:5000/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        nome: nome,
+        email: email,
+        senha: senha
+    })
+})
+.then(function(resposta) {
 
-        listaUsuarios.push(usuario);
-
-        console.log(listaUsuarios);
+    if (resposta.ok) {
 
         alert("Cadastro realizado!");
 
         window.location.href = "recomedacao.html";
+
+    } else {
+
+        alert("Erro ao cadastrar");
+
+    }
+
+})
+.catch(function(erro) {
+
+    console.log(erro);
+
+});
     }
 }
 </script>
