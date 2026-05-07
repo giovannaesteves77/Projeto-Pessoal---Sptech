@@ -17,6 +17,6 @@ function cadastrar(req, res) {
         });
 }
 
-module.exports = {
+module.exports = { 
     cadastrar
 };
