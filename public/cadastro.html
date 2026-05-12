@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro - BookMatch</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body>
 
@@ -31,10 +31,10 @@
     <p>Insira sua senha:</p>
     <input type="text" id="input_senha">
     <div id="erro_senha"></div>
-
+        
     <button type="button" onclick="botao()">Cadastrar</button>
 </form>
-
+  <span><a href="paginahome.html">Voltar a página inicial</a></span>
         <span>Já possui conta? <a href="login.html">Entrar</a></span>
     </div>
  <div id="div_mensagem"></div>
@@ -100,7 +100,7 @@ function botao() {
         erro_senha.innerHTML == ""
     ) {
 
-       fetch("http://localhost:5000/usuarios/cadastrar", {
+      fetch("http://localhost:5000/usuarios/cadastrar", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -111,26 +111,13 @@ function botao() {
         senha: senha
     })
 })
-.then(function(resposta) {
-
-    if (resposta.ok) {
-
-        alert("Cadastro realizado!");
-
-        window.location.href = "recomedacao.html";
-
-    } else {
-
-        alert("Erro ao cadastrar");
-
-    }
-
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+    window.location.href = "login.html";
 })
-.catch(function(erro) {
-
-    console.log(erro);
-
+.catch(err => {
+    console.log(err);
 });
-    }
-}
+    }}
 </script>

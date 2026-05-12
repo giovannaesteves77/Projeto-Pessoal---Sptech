@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>BookMatch Dashboard</title>
-<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="/css/dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -12,13 +12,10 @@
 <div class="container">
 
   <div class="sidebar">
-    <div class="logo">📚 <span>BookMatch</span></div>
+    <div class="logo"><span>BookMatch</span></div>
     <div class="nav">
       <a class="active">Dashboard</a>
-      <a>Recomendações</a>
-      <a>Livros</a>
-      <a>Perfil</a>
-      <a>Sair</a>
+      <a class="login" href="paginahome.html">Voltar a página home</a>
     </div>
   </div>
 
@@ -39,7 +36,7 @@
     <div class="grid">
       <div class="chart-card">
         <h3>Gêneros</h3>
-        <canvas id="genero"></canvas>
+        <canvas id="graficoGenero"></canvas>
       </div>
 
       <div class="chart-card">
@@ -55,7 +52,29 @@
 
   </div>
 </div>
+<script>
+fetch("/preferencias/generos")
+.then(res => res.json())
+.then(dados => {
 
-<script src="dashoboard.js"></script>
+    const generos = dados.map(i => i.genero);
+    const qtd = dados.map(i => i.quantidade);
+
+    new Chart(document.getElementById("graficoGenero"), {
+        type: "bar",
+        data: {
+            labels: generos,
+            datasets: [{
+                label: "Gêneros mais escolhidos",
+                data: qtd
+            }]
+        }
+    });
+
+})
+.catch(err => {
+    console.log("Erro ao carregar gráfico:", err);
+});
+</script>
 </body>
 </html>

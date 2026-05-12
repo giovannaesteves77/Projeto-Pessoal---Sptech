@@ -108,6 +108,7 @@ body{
   border:1px solid var(--border);
   border-radius:15px;
   padding:15px;
+  height: 350px;
 }
 
 @media(max-width:900px){
@@ -115,3 +116,6 @@ body{
   .top-cards{grid-template-columns:repeat(2,1fr);}
   .grid{grid-template-columns:1fr;}
 }
+
+
+
