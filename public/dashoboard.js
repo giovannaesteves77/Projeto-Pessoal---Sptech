@@ -1,7 +1,26 @@
 const colors = ['#8b5e3c','#a8744f','#c89b6a','#6b4a36','#d2b48c'];
 
+
+function buscarTotalUsuarios() {
+
+    console.log("KPI FOI CHAMADA");
+
+    fetch("http://localhost:5000/usuarios/totalUsuarios")
+        .then(res => res.json())
+        .then(dados => {
+
+            console.log("RESPOSTA KPI:", dados);
+
+            document.querySelector("#kpiUsuarios h2").innerHTML =
+                dados.totalUsuarios;
+
+        });
+}
+
+document.addEventListener("DOMContentLoaded", buscarTotalUsuarios);
+
 // GÊNERO (BARRAS)
-fetch("http://localhost:5001/generos")
+fetch("http://localhost:5000/generos")
 
 .then(function(resposta){
 

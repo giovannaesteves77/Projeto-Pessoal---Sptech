@@ -47,8 +47,8 @@
             </select>
 
             <button onclick="recomendarLivros()">Descobrir livros</button>
-               <br>
-                <span><a href="dashboard.html">Ir para Dashboard</a></span>
+            
+                <button onclick="irDashboard()">Ir para Dashboard</button>
         </div>
     </div>
 
@@ -380,14 +380,13 @@ fetch("/preferencias/salvar", {
 })
 .then(() => {
 
-    alert("Respostas salvas!");
-
-    window.location.href = "dashboard.html";
 
 })
 .catch(err => console.log(err));
 
 }
-
+function irDashboard() {
+    window.location.href = "dashboard.html";
+}
 </script>
 </body>

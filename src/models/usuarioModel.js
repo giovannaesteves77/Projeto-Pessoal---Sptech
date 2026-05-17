@@ -1,15 +1,37 @@
-const conexao = require("../database/config");
+const database = require("../database/config");
 
 function cadastrar(nome, email, senha) {
-
     const instrucao = `
-        INSERT INTO usuario (nome, email, senha)
+        INSERT INTO Usuario (Nome, Email, Senha)
         VALUES ('${nome}', '${email}', '${senha}');
     `;
 
-    return conexao.promise().query(instrucao);  
+    return database.promise().query(instrucao);
 }
 
+function buscarTotalUsuarios() {
+    const instrucaoSql = `
+        SELECT COUNT(idUsuario) AS totalUsuarios
+        FROM Usuario;
+    `;
+
+    return database.promise().query(instrucaoSql);
+}
+
+function buscarGeneros() {
+
+    const sql = `
+        SELECT genero, COUNT(*) AS quantidade
+        FROM Preferencias
+        GROUP BY genero;
+    `;
+
+    return database.promise().query(sql);
+}
 module.exports = {
-    cadastrar
+    cadastrar,
+    buscarTotalUsuarios,
+    buscarGeneros
 };
+
+

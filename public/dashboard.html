@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>BookMatch Dashboard</title>
-<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="css/dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -27,10 +27,7 @@
     </div>
 
     <div class="top-cards">
-      <div class="card"><h3>Total de usuários</h3><h2>128</h2></div>
-      <div class="card"><h3>Gênero mais escolhido</h3><h2>Ficção</h2></div>
-      <div class="card"><h3>Frequência mais comum</h3><h2>Semanal</h2></div>
-      <div class="card"><h3>Páginas preferidas</h3><h2>200–400</h2></div>
+      <div class="card" id="kpiUsuarios"><h3>Total de usuários</h3><h2>--</h2></div>
     </div>
 
     <div class="grid">
@@ -39,21 +36,12 @@
         <canvas id="graficoGenero"></canvas>
       </div>
 
-      <div class="chart-card">
-        <h3>Frequência de leitura</h3>
-        <canvas id="freq"></canvas>
-      </div>
-
-      <div class="chart-card">
-        <h3>Páginas</h3>
-        <canvas id="paginas"></canvas>
-      </div>
-    </div>
+    
 
   </div>
 </div>
 <script>
-fetch("/preferencias/generos")
+fetch("http://localhost:5000/usuarios/generos")
 .then(res => res.json())
 .then(dados => {
 
@@ -75,6 +63,24 @@ fetch("/preferencias/generos")
 .catch(err => {
     console.log("Erro ao carregar gráfico:", err);
 });
+
+function buscarTotalUsuarios() {
+
+    fetch("http://localhost:5000/usuarios/totalUsuarios")
+        .then(res => res.json())
+        .then(dados => {
+
+            console.log("KPI:", dados);
+
+            document.querySelector("#kpiUsuarios h2").innerHTML =
+                dados.totalUsuarios;
+
+        })
+        .catch(err => console.log(err));
+
+}
+
+document.addEventListener("DOMContentLoaded", buscarTotalUsuarios);
 </script>
 </body>
 </html>
